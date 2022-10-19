@@ -1,10 +1,10 @@
 <template>
   <label v-if="label">{{ label }}</label>
   <input
+    v-bind="$attrs"
     :value="modelValue"
     :placeholder="label"
     @input="inputHandler($event)"
-    v-bind="$attrs"
     class="field"
   />
 </template>
@@ -16,7 +16,6 @@ export default {
       type: String,
       default: ''
     },
-
     modelValue: {
       type: [String, Number],
       default: ''

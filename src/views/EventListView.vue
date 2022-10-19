@@ -1,5 +1,6 @@
 <template>
   <h1>Events For Good</h1>
+
   <div class="events">
     <div class="search-box">
       <BaseInput
@@ -75,7 +76,6 @@ export default {
       })
   },
   beforeRouteUpdate(routeTo) {
-    // return EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
     var queryFunction
     if (this.keyword == null || this.keyword === '') {
       queryFunction = EventService.getEvents(
@@ -91,7 +91,6 @@ export default {
     }
 
     queryFunction
-
       .then((response) => {
         this.events = response.data // <---
         this.totalEvents = response.headers['x-total-count'] // <---
@@ -141,10 +140,6 @@ export default {
   width: 290px;
 }
 
-.search-box {
-  width: 300px;
-}
-
 .pagination a {
   flex: 1;
   text-decoration: none;
@@ -157,5 +152,9 @@ export default {
 
 #page-next {
   text-align: right;
+}
+
+.search-box {
+  width: 300px;
 }
 </style>
